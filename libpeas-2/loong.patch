@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 7d56fc0..f695522 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,7 +28,6 @@ makedepends=(
+   meson
+   python
+   python-gobject
+-  python-setuptools
+   vala
+ )
+ checkdepends=(xorg-server-xvfb)

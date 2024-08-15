@@ -1,0 +1,10 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 96b5b3c..8cdd578 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -1,4 +1,5 @@
+ # Maintainer: Bruno Pagani <archange@archlinux.org>
++export CHECKFUNC=1
+ 
+ _pkg=mss
+ pkgname=python-${_pkg}

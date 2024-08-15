@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 3567af7..11cbd14 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -51,7 +51,7 @@ build() {
+     -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+     -DBUILD_SHARED_LIBS=ON
+   cmake --build build
+-  cmake --build build --target doc
++#cmake --build build --target doc
+ }
+ 
+ check() {

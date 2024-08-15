@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index e6ef8fd..058bcf5 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -62,7 +62,6 @@ build() {
+   )
+ 
+   cd $pkgname-$pkgver
+-  CFLAGS+=" -Wno-incompatible-pointer-types -Wno-implicit-int" \
+   ./configure "${configure_options[@]}"
+   sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+   make

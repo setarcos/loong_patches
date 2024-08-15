@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 21e77b3..bf7155b 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=waycheck
+ pkgver=1.0.0
+ pkgrel=1
+ pkgdesc="Simple GUI that displays the protocols implemented by a Wayland compositor"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://gitlab.freedesktop.org/serebit/$pkgname"
+ license=("Apache-2.0")
+ depends=("hicolor-icon-theme" "qt6-wayland>=6.5" "wayland")

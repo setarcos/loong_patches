@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index c41aee9..915c595 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,6 +23,7 @@ prepare() {
+ build() {
+   cp -a unrar libunrar
+   export LDFLAGS+=' -pthread'
++  unset CFLAGS CXXFLAGS
+   make -C libunrar lib
+   make -C unrar -j1
+ }

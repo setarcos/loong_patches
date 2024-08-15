@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 38ad7a2..8a9156f 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -34,7 +34,7 @@ pkgver() {
+ 
+ prepare() {
+   cd cbindgen
+-  cargo fetch --locked --target x86_64-unknown-linux-gnu
++  cargo fetch --locked --target `uname -m`-unknown-linux-gnu
+ }
+ 
+ build() {

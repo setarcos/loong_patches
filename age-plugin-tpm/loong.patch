@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index dc9dcc5..6c1e0b1 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=age-plugin-tpm
+ pkgver=0.2.0
+ pkgrel=3
+ pkgdesc="TPM plugin for age"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/Foxboron/age-plugin-tpm"
+ license=("MIT")
+ depends=("glibc")

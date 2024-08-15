@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 0aaf6da..b764c46 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgver=3.5.0
+ pkgrel=3
+ pkgdesc="kiwix command line tools"
+ license=('GPL3')
+-arch=('armv7h' 'i686' 'x86_64')
++arch=('armv7h' 'i686' 'loong64' 'x86_64')
+ depends=('libkiwix')
+ makedepends=('meson')
+ url='https://github.com/kiwix/kiwix-tools'

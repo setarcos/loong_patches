@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index ebfd654..e984ce4 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@ pkgname=skaffold
+ pkgver=2.9.0
+ pkgrel=1
+ pkgdesc="A command line tool that facilitates continuous development for Kubernetes applications"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/GoogleContainerTools/${pkgname}"
+ license=("Apache")
+ depends=("docker" "kompose")

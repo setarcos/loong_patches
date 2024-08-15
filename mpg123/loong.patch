@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 69b9814..ebe50c3 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -27,7 +27,7 @@ build() {
+   ./configure \
+     --prefix=/usr \
+     --enable-int-quality \
+-    --with-audio="alsa oss sdl jack pulse"
++    --with-audio="alsa oss jack"
+   # https://bugzilla.gnome.org/show_bug.cgi?id=655517
+   sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+   make

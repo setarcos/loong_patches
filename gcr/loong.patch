@@ -1,0 +1,15 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 9fdaf5e..2d6aa12 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -36,10 +36,6 @@ pkgver() {
+   git describe --tags | sed 's/[^-]*-g/r&/;s/-/+/g'
+ }
+ 
+-prepare() {
+-  cd gcr
+-}
+-
+ build() {
+   local meson_options=(
+     # ssh-agent moved to gcr-4

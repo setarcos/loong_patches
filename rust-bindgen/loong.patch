@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index d6341e7..fe85a19 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -22,7 +22,7 @@ prepare() {
+ 
+ build() {
+   cd $pkgname-$pkgver
+-  cargo build --release --frozen
++  cargo build --release #--frozen
+   local _completion="target/release/$_pkgname --generate-shell-completions"
+   $_completion bash > "completions/$_pkgname"
+   $_completion fish > "completions/$_pkgname.fish"

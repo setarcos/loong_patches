@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 81f6dbd..04cc823 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgname=phoc
+ pkgver=0.35.0
+ pkgrel=1
+ pkgdesc='Display compositor designed for phones'
+-arch=(x86_64 aarch64)
++arch=(loong64 x86_64 aarch64)
+ url='https://gitlab.gnome.org/World/Phosh/phoc'
+ license=(GPL3)
+ depends=(gnome-desktop wlroots gsettings-desktop-schemas pixman libinput libxcb libxkbcommon

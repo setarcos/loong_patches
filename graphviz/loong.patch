@@ -1,0 +1,15 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 6abdb8d..1dc1ba2 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,8 +11,8 @@ url='https://www.graphviz.org/'
+ license=('EPL')
+ arch=('x86_64')
+ depends=('libltdl' 'gd' 'librsvg' 'ghostscript' 'pango' 'gts' 'gsfonts')
+-makedepends=('swig' 'mono' 'guile' 'lua' 'perl' 'python' 'r' 'tk' 'qt6-base' 'gtk2')
+-optdepends=('mono: sharp bindings'
++makedepends=('swig' 'guile' 'lua' 'perl' 'python' 'r' 'tk' 'qt6-base' 'gtk2')
++optdepends=(#'mono: sharp bindings'
+             'guile: guile bindings'
+             'lua: lua bindings'
+             'perl: perl bindings'

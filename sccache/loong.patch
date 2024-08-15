@@ -1,0 +1,34 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 39d82f7..d1d86f2 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -34,17 +34,27 @@ pkgver() {
+ }
+ 
+ prepare() {
++#  find -name Cargo.lock -exec rm -f {} \;
++#  mkdir -p .cargo
++#  cat > .cargo/config.toml <<EOF
++#[source.crates-io]
++#registry = "https://gitee.com/yetist/crates.io-index"
++#EOF
+   cargo fetch \
+-    --locked \
+     --manifest-path sccache/Cargo.toml
+ }
+ 
+ build() {
+   export CFLAGS+=' -ffat-lto-objects'
+   export LDFLAGS+=' -lzstd'
++#  find -name Cargo.lock -exec rm -f {} \;
++#  mkdir -p .cargo
++#  cat > .cargo/config.toml <<EOF
++#[source.crates-io]
++#registry = "https://gitee.com/yetist/crates.io-index"
++#EOF
+   cargo build \
+     --release \
+-    --frozen \
+     --manifest-path sccache/Cargo.toml \
+     --features all,dist-server,native-zlib
+ }

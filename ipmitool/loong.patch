@@ -1,0 +1,10 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index c329064..e6b9411 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -31,4 +31,5 @@ package(){
+ 
+ 	# Install license
+ 	install -Dm644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
++	curl https://www.iana.org/assignments/enterprise-numbers.txt > $pkgdir/usr/share/misc/enterprise-numbers
+ }

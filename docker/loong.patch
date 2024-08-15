@@ -1,0 +1,41 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index b73d718..bbad85d 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgver=24.0.7
+ pkgrel=1
+ epoch=1
+ pkgdesc='Pack, ship and run any application as a lightweight container'
+-arch=('x86_64' 'aarch64')
++arch=('loong64' 'x86_64' 'aarch64')
+ url='https://www.docker.com/'
+ license=('Apache')
+ depends=('glibc' 'bridge-utils' 'iproute2' 'device-mapper' 'sqlite' 'systemd-libs'
+@@ -22,11 +22,13 @@ _TINI_COMMIT=de40ad007797e0dcd8b7126f27bb87401d224240
+ source=("git+https://github.com/docker/cli.git#tag=v$pkgver"
+         "git+https://github.com/moby/moby.git#tag=v$pkgver"
+         "git+https://github.com/krallin/tini.git#commit=$_TINI_COMMIT"
+-        "$pkgname.sysusers")
++        "$pkgname.sysusers"
++        "moby-la64.patch")
+ sha256sums=('SKIP'
+             'SKIP'
+             'SKIP'
+-            '541826011a9836d05a2f42293d5f1beadf2ca8d89fb604487d61a013505678eb')
++            '541826011a9836d05a2f42293d5f1beadf2ca8d89fb604487d61a013505678eb'
++            '0571a94167a0613482b31bfc8d082ac41aecf0fe1667635915b60a3f48764413')
+ 
+ # create a fake go path directory and pushd into it
+ # $1 real directory
+@@ -42,6 +44,11 @@ _fake_gopath_popd() {
+   popd >/dev/null
+ }
+ 
++prepare() {
++  cd moby
++  patch -p1 -i $srcdir/moby-la64.patch
++}
++
+ build() {
+   ### check my mistakes on commit version
+   echo 'Checking commit mismatch'

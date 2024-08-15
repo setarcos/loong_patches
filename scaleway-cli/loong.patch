@@ -1,0 +1,16 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index d0d9f0c..3af1a04 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -39,8 +39,10 @@ build() {
+   export CGO_CFLAGS="$CFLAGS"
+   export CGO_CXXFLAGS="$CXXFLAGS"
+   export CGO_LDFLAGS="$LDFLAGS"
++  export GOPROXY=https://goproxy.cn
++  go mod edit -replace=golang.org/x/sys=github.com/golang/sys@master
++  go mod tidy
+   go build \
+-    -buildmode=pie \
+     -trimpath \
+     -mod=readonly \
+     -modcacherw \

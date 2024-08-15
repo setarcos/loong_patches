@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index f8895e4..4738fc8 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,6 +23,7 @@ prepare() {
+ 
+ build() {
+   cd uBlock
++  npm config set registry https://registry.loongnix.cn:5873/
+   make chromium firefox
+   strip-nondeterminism -t zip dist/build/uBlock0.firefox.xpi
+ }

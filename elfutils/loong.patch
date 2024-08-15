@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 9b2e0d3..1782bf8 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -107,7 +107,7 @@ package_debuginfod() {
+   install -vDm 644 $pkgbase-$pkgver/{AUTHORS,ChangeLog,NEWS,NOTES,README} -t "$pkgdir/usr/share/doc/$pkgname/"
+ 
+   # set the default DEBUGINFOD_URLS environment variable to the distribution's debuginfod URL
+-  printf "https://debuginfod.archlinux.org\n" > "$pkgdir/etc/debuginfod/archlinux.urls"
++  printf "http://debuginfod.loongarch.zhcn.cc:8002\n" > "$pkgdir/etc/debuginfod/archlinux.urls"
+ 
+   (
+     cd "$pkgdir"

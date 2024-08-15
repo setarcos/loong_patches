@@ -1,0 +1,11 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index b482cc3..0360272 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -1,5 +1,6 @@
+ # Maintainer: Caleb Maclennan <caleb@alerque.com>
+ # Contributor: Eli Schwartz <eschwartz@archlinux.org>
++export CHECKFUNC=1
+ 
+ _pkgname=cachy
+ pkgname=python-cachy

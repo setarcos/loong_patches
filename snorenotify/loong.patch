@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 56a937a..afa269a 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=snorenotify
+ pkgver=0.7.0
+ pkgrel=5
+ pkgdesc='Multi-platform Qt5 notification framework'
+-arch=('i686' 'x86_64')
++arch=('i686' 'loong64' 'x86_64')
+ url='https://github.com/Snorenotify/Snorenotify'
+ license=('LGPL3')
+ depends=('qt5-base' 'hicolor-icon-theme')

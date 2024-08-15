@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index e55bb40..72c6c53 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgver=2.3.1
+ pkgrel=5
+ pkgdesc="Offline reader for Web content, especially intended to make Wikipedia available offline"
+ url="https://github.com/kiwix/kiwix-desktop"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=("GPL3")
+ depends=("libkiwix>=12.1.1" "qt5-base" "qt5-webengine" "aria2")
+ makedepends=("qt5-tools")

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index c668031..1304d3b 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgname=busybox
+ pkgver=1.36.1
+ pkgrel=1
+ pkgdesc="Utilities for rescue and embedded systems"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://www.busybox.net"
+ license=('GPL')
+ makedepends=("ncurses" "musl" "kernel-headers-musl")

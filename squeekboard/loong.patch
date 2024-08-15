@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index ae1b63c..3a10278 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgname=squeekboard
+ pkgver=1.22.0
+ pkgrel=1
+ pkgdesc='An on-screen-keyboard input method for Wayland'
+-arch=(x86_64 aarch64)
++arch=(loong64 x86_64 aarch64)
+ url='https://gitlab.gnome.org/World/Phosh/squeekboard'
+ license=(GPL3)
+ depends=(feedbackd gnome-desktop python)

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index be16c63..5eb18a5 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -41,7 +41,7 @@ _deps=(build
+        virtualenv)
+ depends=(python
+          "${_deps[@]/#/python-}")
+-checkdepends=(python-deepdiff  # not mentioned but required
++makedepends+=(python-deepdiff  # not mentioned but required
+               python-psutil  # for python-pytest-xdist
+               python-httpretty
+               python-pip  # not mentioned but required

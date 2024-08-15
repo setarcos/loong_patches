@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index f0b458e..5ea3cd2 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -32,6 +32,8 @@ build() {
+     -W no-dev
+   )
+ 
++  CFLAGS=${CFLAGS/-Werror=format-security/}
++  CXXFLAGS=${CXXFLAGS/-Werror=format-security/}
+   cmake "${cmake_options[@]}"
+   cmake --build build --verbose
+ }

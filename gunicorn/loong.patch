@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 1ca6696..8d11f72 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -2,6 +2,7 @@
+ # Contributor: Jeremy "Ichimonji10" Audet <ichimonji10 at gmail dot com>
+ # Contributor: pumpkin <pumpkin at mailoo dot org>
+ # Contributor: Vsevolod Balashov <vsevolod at balashov dot name>
++export CHECKFUNC=1
+ 
+ pkgname=gunicorn
+ pkgver=20.1.0

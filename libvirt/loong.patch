@@ -1,0 +1,22 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 1a6458e..be661da 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -83,13 +83,16 @@ backup=(
+ )
+ source=(
+   "https://libvirt.org/sources/$pkgname-$pkgver.tar.xz"{,.asc}
++  libvirt-loongarch.patch
+ )
+ sha256sums=('8ba2e72ec8bdd2418554a1474c42c35704c30174b7611eaf9a16544b71bcf00a'
+-            'SKIP')
++            'SKIP'
++            'f0562941282b157e2ebba9d203c33f4f9c0f3f93562129448f7de6e5df0575fc')
+ validpgpkeys=('453B65310595562855471199CA68BE8010084C9C') # Jiří Denemark <jdenemar@redhat.com>
+ 
+ prepare() {
+   cd "$pkgname-$pkgver"
++  patch -Np1 -i ../libvirt-loongarch.patch
+ 
+   sed -i 's|/sysconfig/|/conf.d/|g' \
+     src/remote/libvirtd.service.in \

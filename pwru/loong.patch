@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 96a658c..7ea675b 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=pwru
+ pkgver=1.0.5
+ pkgrel=1
+ pkgdesc="Packet, where are you? -- eBPF-based Linux kernel networking debugger"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/cilium/pwru"
+ license=("GPL2")
+ depends=("glibc")

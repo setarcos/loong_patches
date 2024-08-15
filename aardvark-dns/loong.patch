@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 55acfca..dca9b1a 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -31,7 +31,7 @@ pkgver() {
+ 
+ prepare() {
+   cd $pkgname
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build() {

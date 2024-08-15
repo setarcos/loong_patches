@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index ec57695..f8663be 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,6 +23,8 @@ prepare() {
+ build() {
+ 	cd "${srcdir}/${pkgname}-${pkgver}"
+ 	CFLAGS+=' -fcommon' # https://wiki.gentoo.org/wiki/Gcc_10_porting_notes/fno_common
++	CFLAGS=${CFLAGS/-Werror=format-security/}
++	CXXFLAGS=${CXXFLAGS/-Werror=format-security/}
+ 	./configure \
+ 		--prefix=/usr \
+ 		--mandir=/usr/share/man \

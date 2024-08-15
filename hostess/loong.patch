@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 0580344..246d9b7 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgver=0.5.2
+ pkgrel=4
+ pkgdesc="An idempotent command-line utility for managing your /etc/hosts file."
+ url="https://github.com/cbednarski/hostess"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=('MIT')
+ depends=('glibc')
+ makedepends=("go")

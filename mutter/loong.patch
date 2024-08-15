@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 67fe1c8..443e0d6 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -47,7 +47,7 @@ makedepends=(
+   xorg-server
+   xorg-server-xvfb
+ )
+-checkdepends=(
++makedepends+=(
+   gnome-session
+   python-dbusmock
+   wireplumber

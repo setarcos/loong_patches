@@ -1,0 +1,10 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 1be71c2..91ae373 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -1,4 +1,5 @@
+ # Maintainer: Felix Yan <felixonmars@archlinux.org>
++export CHECKFUNC=1
+ 
+ pkgname=python-ansiwrap
+ pkgver=0.8.4

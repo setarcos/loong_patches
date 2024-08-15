@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index ac5af51..d33f6bf 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -24,7 +24,7 @@ build() {
+   export CGO_CFLAGS="${CFLAGS}"
+   export CGO_CXXFLAGS="${CXXFLAGS}"
+   export CGO_LDFLAGS="${LDFLAGS}"
+-  export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
++  export GOFLAGS="-trimpath -mod=readonly -modcacherw"
+   go build -tags extended
+ 
+   ./hugo gen man

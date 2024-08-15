@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 5b01d2c..38df1c6 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,7 +23,7 @@ validpgpkeys=(
+ build() {
+   cd ${pkgname}-dev
+   make configure
+-  export OPTIMIZER="-march=${CARCH/_/-} -O1"
++  export OPTIMIZER="-march=`uname -m` -O1"
+   export DEBUG=-DNDEBUG
+   ./configure --prefix=/usr --sbindir=/usr/bin --with-systemd-unit-dir=/usr/lib/systemd/system
+   make

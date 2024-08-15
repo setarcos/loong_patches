@@ -1,0 +1,22 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index d25230e..89bd981 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=mdcat
+ pkgver=2.1.1
+ pkgrel=1
+ pkgdesc='Sophisticated Markdown rendering for the terminal'
+-arch=('i686' 'x86_64')
++arch=('i686' 'loong64' 'x86_64')
+ url="https://github.com/swsnr/mdcat"
+ license=('MPL-2.0')
+ options=(!lto)
+@@ -18,7 +18,7 @@ sha256sums=('d0fa8e9c7477842b6c6923e6710363050f096ea8283cb69b475071f60fc6de42')
+ 
+ prepare() {
+   cd "${pkgname}-${pkgname}-${pkgver}"
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build() {

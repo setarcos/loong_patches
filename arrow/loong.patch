@@ -1,0 +1,16 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 2f10f7b..ad7a598 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -33,6 +33,11 @@ prepare() {
+ build(){
+   CC=clang \
+   CXX=clang++ \
++# clang didn't support -mlsx
++  CFLAGS=${CFLAGS/-mlsx /}
++  CXXFLAGS=${CXXFLAGS/-mlsx /}
++  CFLAGS=${CFLAGS/-fstack-clash-protection/}
++  CXXFLAGS=${CXXFLAGS/-fstack-clash-protection/}
+   cmake \
+     -B build -S apache-${pkgname}-${pkgver}/cpp \
+     -DCMAKE_INSTALL_PREFIX="/usr" \

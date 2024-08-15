@@ -1,0 +1,26 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index b827065..b7b5b36 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -13,6 +13,8 @@ depends=(
+   glib2
+   gtk3
+   libgranite.so
++
++
+   libhandy-1.so
+   libsoup
+   networkmanager
+@@ -33,6 +35,12 @@ pkgver() {
+   git describe --tags
+ }
+ 
++prepare() {
++  cd capnet-assist
++  sed -i '7d' data/meson.build
++  sed -i '16d' data/meson.build
++}
++
+ build() {
+   arch-meson capnet-assist build \
+     -D b_pie=false

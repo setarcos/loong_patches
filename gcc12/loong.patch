@@ -1,0 +1,103 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index afa3970..711b852 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -20,8 +20,8 @@ url='https://gcc.gnu.org'
+ makedepends=(
+   binutils
+   doxygen
+-  gcc-ada
+-  gcc-d
++#  gcc-ada
++#  gcc-d
+   git
+   libisl
+   libmpc
+@@ -39,6 +39,7 @@ options=(!emptydirs !lto)
+ _libdir=usr/lib/gcc/$CHOST/${pkgver%%+*}
+ source=(git+https://sourceware.org/git/gcc.git#commit=${_commit}
+         c89 c99
++	gcc-12-loong64.patch
+ )
+ validpgpkeys=(F3691687D867B81B51CE07D9BBE43771487328A9  # bpiotrowski@archlinux.org
+               86CFFCA918CF3AF47147588051E8B148A9999C34  # evangelos@foutrelis.com
+@@ -46,7 +47,8 @@ validpgpkeys=(F3691687D867B81B51CE07D9BBE43771487328A9  # bpiotrowski@archlinux.
+               D3A93CAD751C2AF4F8C7AD516C35B99309B5FA62) # Jakub Jelinek <jakub@redhat.com>
+ sha256sums=('SKIP'
+             'de48736f6e4153f03d0a5d38ceb6c6fdb7f054e8f47ddd6af0a3dbf14f27b931'
+-            '2513c6d9984dd0a2058557bf00f06d8d5181734e41dcfe07be7ed86f2959622a')
++            '2513c6d9984dd0a2058557bf00f06d8d5181734e41dcfe07be7ed86f2959622a'
++            '4018da43b2cb96145557af4409a009c63c95d4986fd16bee021ea76142615b23')
+ 
+ prepare() {
+   [[ ! -d gcc ]] && ln -s gcc-${pkgver/+/-} gcc
+@@ -58,6 +60,7 @@ prepare() {
+   # Arch Linux installs x86_64 libraries /lib
+   sed -i '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64
+ 
++  patch -p1 -i $srcdir/gcc-12-loong64.patch
+   mkdir -p "$srcdir/gcc-build"
+ }
+ 
+@@ -102,6 +105,8 @@ build() {
+   # TODO: properly deal with the build issues resulting from this
+   CFLAGS=${CFLAGS/-Werror=format-security/}
+   CXXFLAGS=${CXXFLAGS/-Werror=format-security/}
++  CFLAGS=${CFLAGS/-mlsx /}
++  CXXFLAGS=${CXXFLAGS/-mlsx /}
+ 
+   "$srcdir/gcc/configure" \
+     --enable-languages=c,c++,fortran \
+@@ -134,15 +139,14 @@ package_gcc12-libs() {
+ 
+   cd gcc-build
+   make -C $CHOST/libgcc DESTDIR="$pkgdir" install-shared
+-  mv "${pkgdir}/${_libdir}"/../lib/* "${pkgdir}/${_libdir}"
+-  rmdir "${pkgdir}/${_libdir}"/../lib
++#mv "${pkgdir}/${_libdir}"/../lib/* "${pkgdir}/${_libdir}"
++#  rmdir "${pkgdir}/${_libdir}"/../lib
+   rm -f "$pkgdir/$_libdir/libgcc_eh.a"
+ 
+   for lib in libasan.so \
+              libatomic.so \
+              libgfortran.so \
+              libgomp.so \
+-             libitm.so \
+              liblsan.so \
+              libquadmath.so \
+              libstdc++.so \
+@@ -178,6 +182,7 @@ package_gcc12() {
+ 
+   make -C $CHOST/libgcc DESTDIR="$pkgdir" install
+   rm -f "$pkgdir"/usr/lib/libgcc_s.so*
++  rm -f "$pkgdir"/usr/lib/gcc/loongarch64-unknown-linux-gnu/12.3.0/libgcc_s.so*
+ 
+   make -C $CHOST/libstdc++-v3/src DESTDIR="$pkgdir" install
+   make -C $CHOST/libstdc++-v3/include DESTDIR="$pkgdir" install
+@@ -194,12 +199,12 @@ package_gcc12() {
+     "$pkgdir/${_libdir}/bfd-plugins/"
+ 
+   make -C $CHOST/libgomp DESTDIR="$pkgdir" install-nodist_{libsubinclude,toolexeclib}HEADERS
+-  make -C $CHOST/libitm DESTDIR="$pkgdir" install-nodist_toolexeclibHEADERS
++# make -C $CHOST/libitm DESTDIR="$pkgdir" install-nodist_toolexeclibHEADERS
+   make -C $CHOST/libquadmath DESTDIR="$pkgdir" install-nodist_libsubincludeHEADERS
+-  make -C $CHOST/libsanitizer DESTDIR="$pkgdir" install-nodist_{saninclude,toolexeclib}HEADERS
+-  make -C $CHOST/libsanitizer/asan DESTDIR="$pkgdir" install-nodist_toolexeclibHEADERS
+-  make -C $CHOST/libsanitizer/tsan DESTDIR="$pkgdir" install-nodist_toolexeclibHEADERS
+-  make -C $CHOST/libsanitizer/lsan DESTDIR="$pkgdir" install-nodist_toolexeclibHEADERS
++#  make -C $CHOST/libsanitizer DESTDIR="$pkgdir" install-nodist_{saninclude,toolexeclib}HEADERS
++#  make -C $CHOST/libsanitizer/asan DESTDIR="$pkgdir" install-nodist_toolexeclibHEADERS
++#  make -C $CHOST/libsanitizer/tsan DESTDIR="$pkgdir" install-nodist_toolexeclibHEADERS
++#  make -C $CHOST/libsanitizer/lsan DESTDIR="$pkgdir" install-nodist_toolexeclibHEADERS
+ 
+   make -C libcpp DESTDIR="$pkgdir" install
+   make -C gcc DESTDIR="$pkgdir" install-po
+@@ -210,7 +215,7 @@ package_gcc12() {
+   # create cc-rs compatible symlinks
+   # https://github.com/rust-lang/cc-rs/blob/1.0.73/src/lib.rs#L2578-L2581
+   for binary in {c++,g++,gcc,gcc-ar,gcc-nm,gcc-ranlib}; do
+-    ln -s /usr/bin/${binary} "${pkgdir}"/usr/bin/x86_64-linux-gnu-${binary}-12
++    ln -s /usr/bin/${binary} "${pkgdir}"/usr/bin/loongarch64-linux-gnu-${binary}-12
+   done
+ 
+   # POSIX conformance launcher scripts for c89 and c99

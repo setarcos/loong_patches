@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index ad587ec..68d9a0f 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -38,7 +38,7 @@ prepare(){
+ build() {
+   local configure_options=(
+     --enable-experimental
+-    --enable-sse
++    --disable-sse
+     --prefix=/usr
+     --with-lv2
+   )

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 62073a0..244b060 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgver=0.0.0.20221019
+ _commit=70cb339f869e485802159d7f2b886130793556c4
+ pkgrel=1
+ pkgdesc="System for Sequential Logic Synthesis and Formal Verification"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=("MIT")
+ url="https://github.com/berkeley-abc/abc"
+ depends=('readline')

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 75c2d40..3702b51 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -53,7 +53,7 @@ build() {
+     --opt
+     --system-nspr
+     --system-sqlite
+-    --target x64
++    --target loongarch64
+   )
+ 
+   cd certs

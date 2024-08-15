@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index a1220d6..f0a374d 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=libunibreak
+ pkgver=5.1
+ pkgrel=1
+ pkgdesc="An implementation of the line breaking algorithm as described in Unicode 5.2.0 Standard Annex 14, Revision 24"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/adah1972/libunibreak/"
+ license=("custom:zlib/libpng")
+ depends=()

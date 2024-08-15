@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index bbb9499..30806e8 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -9,7 +9,7 @@ pkgver=36.2.1
+ _rockrel=1
+ pkgrel=2
+ pkgdesc='POSIX bindings for Lua'
+-arch=(x86_64 i686)
++arch=(loong64 x86_64 i686)
+ url="https://github.com/$_project/$_project"
+ license=(MIT)
+ depends=(libxcrypt

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 13fba15..34a806c 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -38,7 +38,7 @@ prepare() {
+   cd "$pkgname"
+ 
+   # download dependencies
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build() {

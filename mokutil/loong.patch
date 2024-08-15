@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 4b6fd11..e3b88e4 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=mokutil
+ pkgver=0.6.0
+ pkgrel=2
+ pkgdesc="Shim.efi Machine Owner Key management tool"
+-arch=(i686 x86_64)
++arch=(i686 loong64 x86_64)
+ url="https://github.com/lcp/mokutil"
+ license=(GPL3)
+ depends=(efivar openssl keyutils libxcrypt)

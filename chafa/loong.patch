@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 5b43c7d..a8a031b 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=chafa
+ pkgver=1.14.0
+ pkgrel=3
+ pkgdesc="Image-to-text converter supporting a wide range of symbols and palettes, transparency, animations, etc."
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://hpjansson.org/chafa/"
+ depends=('libavif' 'librsvg' 'libwebp' 'libxslt')
+ makedepends=('gtk-doc')

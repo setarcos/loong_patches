@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 844c2e8..da09b7c 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgname=tailscale
+ pkgver=1.58.2
+ pkgrel=1
+ pkgdesc="A mesh VPN that makes it easy to connect your devices, wherever they are."
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://tailscale.com"
+ license=("MIT")
+ makedepends=("git" "go")

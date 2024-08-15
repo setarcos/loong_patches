@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index df4c146..d0ac4d4 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,7 @@ pkgname=phosh-mobile-settings
+ pkgver=0.35.0
+ pkgrel=1
+ pkgdesc='A settings app for mobile specific things'
+-arch=(x86_64 aarch64)
++arch=(loong64 x86_64 aarch64)
+ url='https://gitlab.gnome.org/World/Phosh/phosh-mobile-settings'
+ license=(GPL3)
+ depends=(feedbackd libadwaita lm_sensors phoc phosh)

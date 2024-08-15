@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 8b18c43..c302ae7 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,7 +17,7 @@ b2sums=('1c2ccbb21c7aad1d2c1daca7ed99009ec2e2a02a96dd8a73d6ba11d00291f0e81afdd79
+ 
+ prepare() {
+   cd ${pkgname}-${pkgver}
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build() {

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 73185c1..c7b4483 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=hyprlang
+ pkgver=0.2.1
+ pkgrel=4
+ pkgdesc='implementation library for the hypr config language'
+-arch=(x86_64 aarch64)
++arch=(loong64 x86_64 aarch64)
+ url="https://github.com/hyprwm/$pkgname"
+ license=(BSD)
+ depends=(gcc-libs

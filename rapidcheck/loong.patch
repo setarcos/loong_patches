@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index e7ec755..8965ffb 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,7 +12,7 @@ pkgname=rapidcheck
+ pkgver=r1056.ff6af6f
+ pkgrel=1
+ pkgdesc='QuickCheck clone for C++'
+-arch=(x86_64 aarch64 i686 arm armv6h armv7h)
++arch=(loong64 x86_64 aarch64 i686 arm armv6h armv7h)
+ url="https://github.com/emil-e/$pkgname"
+ license=(BSD)
+ makedepends=(cmake

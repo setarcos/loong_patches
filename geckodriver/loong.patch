@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index cf803ed..bf23716 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=geckodriver
+ pkgver=0.34.0
+ pkgrel=1
+ pkgdesc="Proxy for using W3C WebDriver-compatible clients to interact with Gecko-based browsers."
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/mozilla/geckodriver"
+ license=("MPL")
+ makedepends=("rust" "cargo" "gcc-libs")

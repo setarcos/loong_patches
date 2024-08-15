@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 7ef0b7f..0607193 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=vector
+ pkgver=0.35.0
+ pkgrel=1
+ pkgdesc="A high-performance observability data pipeline"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ _target="x86_64-unknown-linux-gnu"
+ url="https://vector.dev"
+ license=("MPL-2.0")

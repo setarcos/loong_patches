@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index d3dc3b8..fd5b732 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgname=zsync
+ pkgver=0.6.2
+ pkgrel=5
+ pkgdesc="A file transfer program that's able to connect to rsync servers"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="http://zsync.moria.org.uk/"
+ depends=("glibc")
+ license=("custom:Artistic")

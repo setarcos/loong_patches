@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 92becdf..b8e9db7 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=qtermwidget
+ pkgver=1.4.0
+ pkgrel=1
+ pkgdesc="A terminal widget for Qt, used by QTerminal"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/lxqt/$pkgname"
+ # Yep, it's messy when you're talking about licenses
+ license=("LGPL" "custom:BSD" "custom:Public Domain")

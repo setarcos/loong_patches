@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 6731dec..71c60df 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -41,6 +41,7 @@ prepare() {
+ build() {
+   local meson_options=(
+     -D gtk_doc=true
++    -D manpages=false
+   )
+ 
+   arch-meson gssdp build "${meson_options[@]}"

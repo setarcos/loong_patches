@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index e79ae50..9625068 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -26,6 +26,7 @@ pkgver() {
+ 
+ build() {
+   cd fluidd
++#  npm config set registry https://registry.loongnix.cn:5873/
+   npm install --frozen-lockfile
+   npm run build
+ }

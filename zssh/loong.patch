@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 62cb2e9..0d3ca70 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgname=zssh
+ pkgver=1.5c
+ pkgrel=13
+ pkgdesc="SSH and Telnet client with ZMODEM file transfer capability"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=("GPL")
+ url="http://zssh.sourceforge.net/"
+ depends=("readline")

@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 96e36ac..86da607 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -31,6 +31,7 @@ makedepends=(
+   libassuan
+   libseccomp
+   ostree
++  git
+ )
+ optdepends=(
+   'apparmor: for apparmor integration'

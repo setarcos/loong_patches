@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 095e0e5..87a284d 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -118,7 +118,7 @@ package_emacs() {
+ 
+ package_emacs-nativecomp() {
+   pkgdesc='The extensible, customizable, self-documenting real-time display editor with native compilation enabled'
+-  depends+=(libgccjit)
++#depends+=(libgccjit)
+   provides=(emacs)
+   conflicts=(emacs)
+ 

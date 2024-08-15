@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index aa1bdd9..5c06ba8 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,6 +21,8 @@ prepare() {
+ }
+ 
+ build() {
++  CFLAGS=${CFLAGS/-Werror=format-security/}
++  CXXFLAGS=${CXXFLAGS/-Werror=format-security/}
+   cd "${srcdir}/${pkgname}-${pkgver}"
+   ./configure --prefix=/usr --mandir=/usr/share/man --with-newconfigdir=/etc/uucp --sbindir=/usr/bin
+   make

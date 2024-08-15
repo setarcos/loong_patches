@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 5e5e0f9..b87cb31 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=kubectl-cert-manager
+ pkgver=1.13.3
+ pkgrel=1
+ pkgdesc='Automatically provision and manage TLS certificates in Kubernetes'
+-arch=('x86_64' 'aarch64')
++arch=('loong64' 'x86_64' 'aarch64')
+ url='https://github.com/jetstack/cert-manager'
+ license=('Apache')
+ depends=('kubectl')

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index fb85d7e..5929150 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -34,7 +34,7 @@ build() {
+ }
+ 
+ check() {
+-    cd ${pkgname}-${pkgver}/build/lib.linux-$CARCH-cpython-*
++    cd ${pkgname}-${pkgver}/build/lib.linux-`uname -m`-cpython-*
+ 
+     python -m unittest
+ }

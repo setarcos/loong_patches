@@ -1,0 +1,15 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index b27112f..3bab632 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -24,7 +24,9 @@ prepare() {
+ 
+ build() {
+     cd "${pkgname}-v${pkgver}"
+-    cargo build --release --locked
++    export CARGO_REGISTRIES_MY_REGISTRY_INDEX="https://gitee.com/yetist/crates.io-index"
++    rm Cargo.lock
++    cargo build --release -v
+ }
+ 
+ package() {

@@ -1,0 +1,36 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 917ceee..5484f34 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -29,13 +29,14 @@ validpgpkeys=(CB9387521E1EE0127DA804843FDBB55084CC5D84  # Harald Sitter <sitter@
+ build() {
+   cmake -B build5 -S $pkgbase-$pkgver \
+     -DCMAKE_BUILD_TYPE=None \
+-    -DPHONON_BUILD_QT6=OFF \
+-    -DPHONON_BUILD_SETTINGS=OFF
++    -DPHONON_BUILD_QT6=OFF
+   cmake --build build5
+ 
+   cmake -B build6 -S $pkgbase-$pkgver \
+     -DCMAKE_BUILD_TYPE=None \
+-    -DPHONON_BUILD_QT5=OFF
++    -DPHONON_BUILD_QT5=OFF \
++    -DCMAKE_SKIP_RPATH=ON \
++    -DPHONON_BUILD_SETTINGS=OFF
+   cmake --build build6
+ }
+ 
+@@ -45,7 +46,6 @@ package_phonon-qt5(){
+   optdepends+=('qt5-tools: Designer plugin')
+ 
+   DESTDIR="$pkgdir" cmake --install build5
+-  rm -r "$pkgdir"/usr/share # Conflicts with phonon-qt6
+ }
+ 
+ package_phonon-qt6(){
+@@ -55,4 +55,5 @@ package_phonon-qt6(){
+   optdepends+=('qt6-tools: Designer plugin')
+ 
+   DESTDIR="$pkgdir" cmake --install build6
++  rm -r "$pkgdir"/usr/share # Conflicts with phonon-qt5
+ }

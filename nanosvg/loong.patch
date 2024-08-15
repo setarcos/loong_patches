@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 3b480cc..1999a9f 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ _gitver=9da543e
+ pkgver=0.1.0.git1.$_gitver
+ pkgrel=3
+ pkgdesc="Simple stupid SVG parser"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/memononen/nanosvg"
+ license=('ZLIB')
+ makedepends=('git' 'cmake')

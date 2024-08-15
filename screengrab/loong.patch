@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 962d828..e4250a9 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgname=screengrab
+ pkgver=2.7.0
+ pkgrel=1
+ pkgdesc="Crossplatform tool for grabbing screenshots of your desktop."
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ groups=("lxqt")
+ url="https://github.com/lxqt/screengrab"
+ license=("GPL2")

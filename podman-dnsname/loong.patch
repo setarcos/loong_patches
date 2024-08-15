@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 5e597b6..4e4f94b 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ _pkgname=dnsname
+ pkgver=1.3.1
+ pkgrel=2
+ pkgdesc="name resolution for containers"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/containers/dnsname"
+ license=("APACHE")
+ makedepends=("git" "go")

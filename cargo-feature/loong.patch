@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index cc797c5..a7e8885 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgrel=1
+ pkgdesc="Conveniently modify dependency features"
+ url="https://github.com/Riey/$pkgname"
+ source=($pkgname-$pkgver::https://github.com/Riey/$pkgname/archive/v$pkgver.tar.gz)
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=("MIT")
+ depends=("cargo")
+ sha256sums=('5b88c1380f1bd6f3d7168137f08a6a534194d21254435a520c39a616398721f8')

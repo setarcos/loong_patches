@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index a7cde4c..1f56eac 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,6 +4,7 @@
+ # Contributor: Felix Yan <felixonmars@archlinux.org>
+ # Contributor: Stéphane Gaudreault <stephane@archlinux.org>
+ # Contributor: Alexander Fehr <pizzapunk gmail com>
++export CHECKFUNC=1
+ 
+ _pyname=pylint
+ pkgname=python-$_pyname

@@ -1,0 +1,16 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index d54c246..2d818f1 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -22,6 +22,11 @@ build() {
+   cd ${pkgname}-${pkgver}
+   export CXX=clang++
+   export CC=clang
++# clang didn't support -mlsx
++  CFLAGS=${CFLAGS/-mlsx /}
++  CXXFLAGS=${CXXFLAGS/-mlsx /}
++  CFLAGS=${CFLAGS/-fstack-clash-protection/}
++  CXXFLAGS=${CXXFLAGS/-fstack-clash-protection/}
+   ./configure \
+     --prefix=/usr \
+     --disable-static

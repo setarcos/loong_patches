@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 7d965a3..3a920c0 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgver=1.7.1
+ pkgrel=1
+ pkgdesc="SPIFFE Runtime Environment"
+ url='https://github.com/spiffe/spire'
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=("Apache")
+ makedepends=("go")
+ depends=("glibc")

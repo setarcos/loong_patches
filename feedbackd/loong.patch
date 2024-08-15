@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 293f2f0..e1cd555 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@ pkgname=feedbackd
+ pkgver=0.2.1
+ pkgrel=1
+ pkgdesc='A daemon to provide haptic feedback on events'
+-arch=(x86_64 aarch64)
++arch=(loong64 x86_64 aarch64)
+ url='https://source.puri.sm/Librem5/feedbackd'
+ license=(GPL3)
+ depends=(dconf gsound json-glib libgudev gsettings-desktop-schemas)

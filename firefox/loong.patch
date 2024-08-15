@@ -1,0 +1,129 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index d295fc7..00e1e11 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -31,7 +31,6 @@ makedepends=(
+   imake
+   inetutils
+   jack
+-  lld
+   llvm
+   mesa
+   nasm
+@@ -64,6 +63,10 @@ source=(
+   https://archive.mozilla.org/pub/firefox/releases/$pkgver/source/firefox-$pkgver.source.tar.xz{,.asc}
+   $pkgname.desktop
+   identity-icons-brand.svg
++  0001-Add-support-for-LoongArch64.patch
++  0002-Enable-VA-API-support-for-AMD-GPUs.patch
++  0003-Enable-WebRTC-for-LoongArch.patch
++  0004-Fix-libyuv-build-with-LSX-LASX.patch
+ )
+ validpgpkeys=(
+   # Mozilla Software Releases <release@mozilla.com>
+@@ -73,11 +76,19 @@ validpgpkeys=(
+ sha256sums=('b84815a90e147965e4c0b50599c85b1022ab0fce42105e5ef45c630dcca5dec3'
+             'SKIP'
+             '1f241fdc619f92a914c75aece7c7c717401d7467c9a306458e106b05f34e5044'
+-            'a9b8b4a0a1f4a7b4af77d5fc70c2686d624038909263c795ecc81e0aec7711e9')
++            'a9b8b4a0a1f4a7b4af77d5fc70c2686d624038909263c795ecc81e0aec7711e9'
++            'baf2381cce9d0a99eade7e6d8b2a9566cfaa292e6b11cf1a7527f048875b81d4'
++            '7d37addd28ab5d84a15d236aba916bd4ba9c81442eb92f430e023928aecf4c22'
++            '9b8141c6731216ea21e76c6efa1de3381bf8ec62b6fdd030d5c8e1e4829e62b5'
++            'e782d4b2ea14a5b662dab21e449923a425fdace096375244ac4750e0466d9fd8')
+ b2sums=('7252cd58fef9f5fcb504c8c9f885567109c05e6ec92157459cc384edc6935adb206e3be0b805aeaa37dbd72656c3243db1291b745dd0f705f37a61319a4dc820'
+         'SKIP'
+         'd07557840097dd48a60c51cc5111950781e1c6ce255557693bd11306c7a9258b2a82548329762148f117b2295145f9e66e0483a18e2fe09c5afcffed2e4b8628'
+-        '63a8dd9d8910f9efb353bed452d8b4b2a2da435857ccee083fc0c557f8c4c1339ca593b463db320f70387a1b63f1a79e709e9d12c69520993e26d85a3d742e34')
++        '63a8dd9d8910f9efb353bed452d8b4b2a2da435857ccee083fc0c557f8c4c1339ca593b463db320f70387a1b63f1a79e709e9d12c69520993e26d85a3d742e34'
++        '8c19b8be27f5b333321e73bca80b1d1f3d87140f931d311f3cadc1dc18a4d5cf98f02448a8e8640d40186c3545dba2f61b7d47d7ceed23d02c9bd147d60c9009'
++        '3dc11f75ab18dfb5a02e6de36adb04e5584b324a7de1d2890afc7eaf8bc754f447846009a24ed0d532289f524a71dadc6bf0130b8cb893c91d3d581885818346'
++        '070ae992fe6f2d5a1881feb2a974e501048cc7ac2c4be472994d97381791693be53ab8ba65546008cacfc8c3197325dc46a0db8e42f9b08caa9e1f7d99bbe688'
++        'cecd147e5825dcbc4694a53f77942fc808893cee0afb9cb826803d3f79887eee8d4f98178788b2319434dd0554540a43e7302b6a1cc1f35fef3d650635cdd79f')
+ 
+ # Google API keys (see http://www.chromium.org/developers/how-tos/api-keys)
+ # Note: These are for Arch Linux use ONLY. For your own distribution, please
+@@ -95,6 +106,11 @@ prepare() {
+   mkdir mozbuild
+   cd firefox-$pkgver
+ 
++  patch -Np1 -i ../0001-Add-support-for-LoongArch64.patch
++  patch -Np1 -i ../0002-Enable-VA-API-support-for-AMD-GPUs.patch
++  patch -Np1 -i ../0003-Enable-WebRTC-for-LoongArch.patch
++  patch -Np1 -i ../0004-Fix-libyuv-build-with-LSX-LASX.patch
++
+   echo -n "$_google_api_key" >google-api-key
+   echo -n "$_mozilla_api_key" >mozilla-api-key
+ 
+@@ -107,11 +123,11 @@ ac_add_options --enable-release
+ ac_add_options --enable-hardening
+ ac_add_options --enable-optimize
+ ac_add_options --enable-rust-simd
+-ac_add_options --enable-linker=lld
++#ac_add_options --enable-linker=lld
+ ac_add_options --disable-install-strip
+-ac_add_options --disable-elf-hack
++#ac_add_options --disable-elf-hack
+ ac_add_options --disable-bootstrap
+-ac_add_options --with-wasi-sysroot=/usr/share/wasi-sysroot
++ac_add_options --without-wasm-sandboxed-libraries
+ 
+ # Branding
+ ac_add_options --enable-official-branding
+@@ -134,7 +150,7 @@ ac_add_options --with-system-nss
+ # Features
+ ac_add_options --enable-alsa
+ ac_add_options --enable-jack
+-ac_add_options --enable-crashreporter
++ac_add_options --disable-crashreporter
+ ac_add_options --disable-updater
+ ac_add_options --disable-tests
+ END
+@@ -147,6 +163,11 @@ build() {
+   export MOZBUILD_STATE_PATH="$srcdir/mozbuild"
+   export MOZ_BUILD_DATE="$(date -u${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH} +%Y%m%d%H%M%S)"
+   export MOZ_NOSPAM=1
++# clang didn't support -mlsx
++  CFLAGS=${CFLAGS/-mlsx /}
++  CXXFLAGS=${CXXFLAGS/-mlsx /}
++  CFLAGS=${CFLAGS/-fstack-clash-protection/}
++  CXXFLAGS=${CXXFLAGS/-fstack-clash-protection/}
+ 
+   # malloc_usable_size is used in various parts of the codebase
+   CFLAGS="${CFLAGS/_FORTIFY_SOURCE=3/_FORTIFY_SOURCE=2}"
+@@ -157,34 +178,7 @@ build() {
+ 
+   # Do 3-tier PGO
+   echo "Building instrumented browser..."
+-  cat >.mozconfig ../mozconfig - <<END
+-ac_add_options --enable-profile-generate=cross
+-END
+-  ./mach build
+-
+-  echo "Profiling instrumented browser..."
+-  ./mach package
+-  LLVM_PROFDATA=llvm-profdata \
+-    JARLOG_FILE="$PWD/jarlog" \
+-    xvfb-run -s "-screen 0 1920x1080x24 -nolisten local" \
+-    ./mach python build/pgo/profileserver.py
+-
+-  stat -c "Profile data found (%s bytes)" merged.profdata
+-  test -s merged.profdata
+-
+-  stat -c "Jar log found (%s bytes)" jarlog
+-  test -s jarlog
+-
+-  echo "Removing instrumented browser..."
+-  ./mach clobber
+-
+-  echo "Building optimized browser..."
+-  cat >.mozconfig ../mozconfig - <<END
+-ac_add_options --enable-lto=cross,full
+-ac_add_options --enable-profile-use=cross
+-ac_add_options --with-pgo-profile-path=${PWD@Q}/merged.profdata
+-ac_add_options --with-pgo-jarlog=${PWD@Q}/jarlog
+-END
++  cp ../mozconfig .mozconfig
+   ./mach build
+ }
+ 

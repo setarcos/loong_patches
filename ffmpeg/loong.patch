@@ -1,0 +1,36 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 8e27098..8c264ba 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -93,7 +93,6 @@ makedepends=(
+   mesa
+   nasm
+   opencl-headers
+-  vapoursynth
+   vulkan-headers
+ )
+ optdepends=(
+@@ -103,7 +102,6 @@ optdepends=(
+   'ladspa: LADSPA filters'
+   'nvidia-utils: Nvidia NVDEC/NVENC support'
+   'onevpl-intel-gpu: Intel QuickSync support'
+-  'vapoursynth: VapourSynth support'
+ )
+ provides=(
+   libavcodec.so
+@@ -211,12 +209,13 @@ build() {
+     --enable-libxml2 \
+     --enable-libxvid \
+     --enable-libzimg \
+-    --enable-nvdec \
+-    --enable-nvenc \
++    --disable-nvdec \
++    --disable-nvenc \
+     --enable-opencl \
+     --enable-opengl \
+     --enable-shared \
+     --enable-version3 \
++    --disable-doc \
+     --enable-vulkan
+   make
+   make tools/qt-faststart

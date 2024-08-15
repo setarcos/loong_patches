@@ -1,0 +1,43 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index ead834c..a0339b2 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -19,21 +19,19 @@ depends=('ca-certificates'
+          'krb5' 'libgssapi_krb5.so'
+          'libidn2' 'libidn2.so'
+          'libnghttp2' 'libnghttp2.so'
+-         'libnghttp3' 'libnghttp3.so'
+          'libpsl' 'libpsl.so'
+          'libssh2' 'libssh2.so'
+          'zlib' 'libz.so'
+          'zstd' 'libzstd.so')
+ makedepends=('git' 'patchelf')
+ validpgpkeys=('27EDEAF22F3ABCEB50DB9A125CC908FDB71E12C2') # Daniel Stenberg
+-source=("git+https://github.com/curl/curl.git#tag=${_tag}?signed")
++source=("git+https://github.com/bagder/curl.git#tag=${_tag}?signed")
+ sha512sums=('SKIP')
+ 
+ _backports=(
+ )
+ 
+ _reverts=(
+-    '9a90c9dd64d2f03601833a70786d485851bd1b53'
+ )
+ 
+ prepare() {
+@@ -85,7 +83,6 @@ build() {
+   "${srcdir}/${pkgbase}"/configure \
+     "${_configure_options[@]}" \
+     --with-openssl \
+-    --with-openssl-quic \
+     --enable-versioned-symbols
+   sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+   make
+@@ -96,7 +93,6 @@ build() {
+   "${srcdir}/${pkgbase}"/configure \
+     "${_configure_options[@]}" \
+     --with-openssl \
+-    --with-openssl-quic \
+     --disable-versioned-symbols
+   sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+   make -C lib

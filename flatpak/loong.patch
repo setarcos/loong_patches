@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 7959bd4..1c45097 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -47,7 +47,7 @@ makedepends=(
+   wayland-protocols
+   xmlto
+ )
+-checkdepends=(
++makedepends+=(
+   socat
+   valgrind
+ )

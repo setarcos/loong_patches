@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index e0ce9d0..c195a53 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=perl-net-libidn
+ pkgver=0.12
+ pkgrel=21
+ pkgdesc="Perl/CPAN Module Net::LibIDN"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://search.cpan.org/dist/Net-LibIDN/"
+ license=("GPL" "PerlArtistic")
+ depends=(perl libidn)

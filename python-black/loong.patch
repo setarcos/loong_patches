@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index cc0d6fa..d248707 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -1,6 +1,7 @@
+ # Maintainer: Maxim Baz <archlinux at maximbaz dot com>
+ # Maintainer: Daniel M. Capella <polyzen@archlinux.org>
+ # Contributor: James Zhu <jameszhu@berkeley.edu>
++export CHECKFUNC=1
+ 
+ pkgname=python-black
+ pkgver=23.12.1

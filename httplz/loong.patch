@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index a9ea601..a69eea7 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,7 +21,7 @@ prepare() {
+   cp Cargo.lock "${_pkgname}-${pkgver}"
+   # fetch dependencies
+   cd "${_pkgname}-${pkgver}"
+-  cargo fetch --locked --target="${CARCH}-unknown-linux-gnu"
++  cargo fetch --locked --target="`uname -m`-unknown-linux-gnu"
+   # rename man page
+   mv "${_pkgname}.md" "${pkgname}.md"
+   mkdir man

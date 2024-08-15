@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index c96cf41..40590cb 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -11,6 +11,7 @@ url='https://inkscape.org/'
+ license=('GPL' 'LGPL')
+ arch=('x86_64')
+ makedepends=('cmake' 'boost' 'git')
++#makedepends=('cmake' 'boost' 'git' 'libsoup')
+ 
+ depends=(
+   'atkmm'

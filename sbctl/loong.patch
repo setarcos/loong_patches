@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 5c77d06..dd1098b 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgname=sbctl
+ pkgver=0.13
+ pkgrel=2
+ pkgdesc="Secure Boot key manager"
+-arch=("x86_64" "aarch64")
++arch=("loong64" "x86_64" "aarch64")
+ url="https://github.com/Foxboron/sbctl"
+ license=("MIT")
+ depends=("binutils" "util-linux")

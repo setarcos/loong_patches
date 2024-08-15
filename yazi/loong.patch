@@ -1,0 +1,22 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 953b934..8938622 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,7 @@ pkgver=0.1.5
+ pkgrel=1
+ pkgdesc="Blazing fast terminal file manager written in Rust, based on async I/O"
+ url="https://github.com/sxyazi/yazi"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=('MIT')
+ depends=('gcc-libs' 'ttf-nerd-fonts-symbols')
+ optdepends=(
+@@ -27,7 +27,7 @@ options=('!lto')
+ 
+ prepare() {
+   cd "$srcdir/$pkgname-$pkgver"
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build() {

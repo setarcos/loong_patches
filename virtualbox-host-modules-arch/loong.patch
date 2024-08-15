@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 7881b6b..8385e73 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -26,7 +26,7 @@ package(){
+   _kernver="$(</usr/src/linux/version)"
+ 
+   install -Dt "$pkgdir/usr/lib/modules/$_kernver/extramodules" -m0644 \
+-    vboxhost/${pkgver}_OSE/${_kernver}/${CARCH}/module/*
++    vboxhost/${pkgver}_OSE/${_kernver}/`uname -m`/module/*
+ 
+   # compress each module individually
+   find "$pkgdir" -name '*.ko' -exec xz -T1 {} +

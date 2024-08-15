@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 0996f47..afc4bc9 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -24,7 +24,7 @@ makedepends=(
+   python-sphinx
+   python-sphinx_rtd_theme
+ )
+-checkdepends=(
++makedepends+=(
+   gtk3
+   python-pytest
+   xorg-server-xvfb

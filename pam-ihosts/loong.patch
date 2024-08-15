@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 3371e26..16d6cad 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -4,7 +4,7 @@ pkgver=1.6
+ pkgrel=1
+ pkgdesc="A PAM module that provides access control by ip, mac-address, or country-code/region"
+ license=("GPL3")
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ depends=("pam")
+ url='https://github.com/ColumPaget/pam_ihosts'
+ source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")

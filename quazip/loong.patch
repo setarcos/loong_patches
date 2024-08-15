@@ -1,0 +1,14 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index b151df5..2a44952 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -18,7 +18,8 @@ sha256sums=('79633fd3a18e2d11a7d5c40c4c79c1786ba0c74b59ad752e8429746fe1781dd6')
+ 
+ build() {
+   cmake -B build5 -S $pkgbase-$pkgver \
+-    -DCMAKE_INSTALL_PREFIX=/usr
++    -DCMAKE_INSTALL_PREFIX=/usr \
++    -DQUAZIP_QT_MAJOR_VERSION=5
+   cmake --build build5
+ 
+   cmake -B build6 -S $pkgbase-$pkgver \

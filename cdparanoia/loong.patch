@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index bd39afd..0008526 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -31,6 +31,8 @@ prepare() {
+ 
+ build() {
+   cd cdparanoia-III-$pkgver
++  CFLAGS=${CFLAGS/-Werror=format-security/}
++  CXXFLAGS=${CXXFLAGS/-Werror=format-security/}
+   ./configure --prefix=/usr --mandir=/usr/share/man
+   make
+ }

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 7b1f2fa..0050337 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@ pkgver=1.7.2
+ pkgrel=1
+ pkgdesc="HashiCorp tool for building and updating infrastructure as code idempotently"
+ url="https://github.com/hashicorp/terraform"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=("BUSL-1.1")
+ makedepends=('go')
+ depends=('glibc')

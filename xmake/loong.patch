@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 900e91b..8490ffd 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgname=xmake
+ pkgver=2.8.6
+ pkgrel=1
+ pkgdesc='A cross-platform build utility based on Lua'
+-arch=(x86_64 i686 aarch64)
++arch=(loong64 x86_64 i686 aarch64)
+ url="https://github.com/xmake-io/$pkgname"
+ license=(Apache)
+ makedepends=(ncurses

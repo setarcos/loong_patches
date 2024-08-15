@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index fbb49d5..4ef0ad3 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=lxqt-notificationd
+ pkgver=1.4.0
+ pkgrel=1
+ pkgdesc="LXQt notification daemon and library."
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ groups=("lxqt")
+ url="https://github.com/lxqt/$pkgname"
+ license=("LGPL2.1")

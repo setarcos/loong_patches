@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 9dde9f4..6955914 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -10,7 +10,7 @@ arch=(x86_64)
+ url='https://apps.kde.org/k3b/'
+ license=(GPL)
+ depends=(libkcddb5 kcmutils5 knotifyconfig5 libmad kfilemetadata5 knewstuff5
+-         libmpcdec libdvdread libburn libsamplerate qt5-webengine)
++         libmpcdec libdvdread libburn libsamplerate)
+ makedepends=(extra-cmake-modules kdoctools5)
+ optdepends=('cdrtools: for CD burning with cdrecord'
+             'dvd+rw-tools: for DVD burning support'

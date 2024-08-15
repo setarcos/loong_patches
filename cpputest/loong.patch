@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 98dc47d..f4df104 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -6,7 +6,7 @@ pkgrel=5
+ pkgdesc="Unit testing and mocking framework for C/C++"
+ arch=(x86_64)
+ url="https://github.com/cpputest/cpputest"
+-license=(BSD-3-Clause)
++license=(BSD)
+ makedepends=(cmake)
+ options=(
+   !strip

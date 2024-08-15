@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 2f4bb9d..bcd6def 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -23,7 +23,7 @@ sha256sums=('SKIP')
+ 
+ prepare() {
+   cd "$pkgname"
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build(){

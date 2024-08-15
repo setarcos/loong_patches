@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 1b7764a..c3cca93 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -26,6 +26,8 @@ prepare() {
+ build() {
+   cd "${srcdir}/${pkgname}-${pkgver}"
+ 
++  CFLAGS=${CFLAGS/-Werror=format-security/}
++  CXXFLAGS=${CXXFLAGS/-Werror=format-security/}
+   ./configure \
+     --prefix=/usr \
+     --enable-chooser

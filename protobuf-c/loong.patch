@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index a6b74ca..765d127 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -17,6 +17,7 @@ sha256sums=('7b404c63361ed35b3667aec75cc37b54298d56dd2bcf369de3373212cc06fd98')
+ 
+ build() {
+   cd "$pkgname-$pkgver"
++  export LDFLAGS="-Wl,--no-as-needed"
+   ./configure --prefix=/usr --disable-static
+   make
+ }

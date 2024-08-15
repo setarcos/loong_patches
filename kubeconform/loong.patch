@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 4158ba6..ae52705 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgver=0.6.4
+ pkgrel=1
+ pkgdesc="FAST Kubernetes manifests validator, with support for Custom Resources!"
+ url="https://github.com/yannh/kubeconform"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ license=("Apache")
+ depends=('glibc')
+ makedepends=("go" "git")

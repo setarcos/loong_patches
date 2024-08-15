@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 81cd815..39d077a 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,6 +28,8 @@ prepare() {
+ 
+ build() {
+   cd ${pkgname}-${pkgver}
++  CFLAGS=${CFLAGS/-Wformat -Werror=format-security/}
++  CXXFLAGS=${CXXFLAGS/-Wformat -Werror=format-security/}
+   libtoolize --force --copy
+   autoreconf --force --install -I m4 
+   LIBS+="-lm" ./configure --prefix=/usr --sysconfdir=/etc/a2ps \

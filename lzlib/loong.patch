@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index a839e90..f9d09d3 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=lzlib
+ pkgver=1.13
+ pkgrel=3
+ pkgdesc="A library providing in-memory LZMA compression and decompression functions"
+-arch=('i686' 'x86_64')
++arch=('i686' 'loong64' 'x86_64')
+ url="http://www.nongnu.org/lzip/lzlib.html"
+ license=('BSD')
+ depends=('gcc-libs')

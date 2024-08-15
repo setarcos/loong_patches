@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 2bbf646..b14fc69 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,7 +28,7 @@ b2sums=('SKIP')
+ prepare() {
+   cargo fetch \
+     --locked \
+-    --target $CARCH-unknown-linux-gnu \
++    --target `uname -m`-unknown-linux-gnu \
+     --manifest-path tarpaulin/Cargo.toml
+ }
+ 

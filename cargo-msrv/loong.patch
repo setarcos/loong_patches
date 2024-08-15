@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index c8e608f..5aa6e17 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -16,7 +16,7 @@ options=('!lto')
+ prepare() {
+   cd "$pkgname-$pkgver"
+   export RUSTUP_TOOLCHAIN=stable
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build() {

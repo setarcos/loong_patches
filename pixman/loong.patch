@@ -1,0 +1,38 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 99a63a4..61ee03e 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -12,9 +12,17 @@ license=('MIT')
+ depends=('glibc')
+ makedepends=('meson' 'libpng')
+ provides=('libpixman-1.so')
+-source=(https://xorg.freedesktop.org/releases/individual/lib/${pkgname}-${pkgver}.tar.xz)
+-sha512sums=('1a1d21b86b3c6784c4c2606b7069723b4dbb747eac9fce95bca86516787840379ffd49abc42d11e7143e85c32c85496f33c2562c7a910ca6f963599affdc3224')
++source=(https://xorg.freedesktop.org/releases/individual/lib/${pkgname}-${pkgver}.tar.xz
++    83.patch)
++sha512sums=('1a1d21b86b3c6784c4c2606b7069723b4dbb747eac9fce95bca86516787840379ffd49abc42d11e7143e85c32c85496f33c2562c7a910ca6f963599affdc3224'
++            'f0ddc083f1cafaebdaf3a3b2d3b9c85b55f3354c7c115b4eff31eb46ddbf71cd6bedea207e10a4692ba73e9857e2e8b49e197de1a037589bb842ee666e829a83')
+ #validpgpkeys=('') # Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
++options=(!lto)
++
++prepare() {
++  cd "$pkgname-$pkgver"
++  patch -p1 -i "$srcdir/83.patch"
++}
+ 
+ build() {
+   arch-meson $pkgname-$pkgver build \
+@@ -25,7 +33,12 @@ build() {
+     -D a64-neon=disabled \
+     -D iwmmxt=disabled \
+     -D mips-dspr2=disabled \
+-    -D gtk=disabled
++    -D gtk=disabled \
++    -D lsx=enabled \
++    -D b_lto=false \
++    -D mmx=disabled \
++    -D ssse3=disabled \
++    -D sse2=disabled
+   ninja -C build
+ }
+ 

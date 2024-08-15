@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index a88eef1..0033206 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=restic
+ pkgver=0.16.3
+ pkgrel=1
+ pkgdesc="Fast, secure, efficient backup program"
+-arch=('x86_64' 'aarch64')
++arch=('loong64' 'x86_64' 'aarch64')
+ url="https://github.com/restic/restic"
+ license=('BSD')
+ depends=('glibc')

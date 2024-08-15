@@ -1,0 +1,9 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 1e158f8..2765f94 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -35,4 +35,3 @@ package() {
+   DESTDIR="$pkgdir" ninja install
+   install -Dm644 ../LICENSE.TXT "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+ }
+-

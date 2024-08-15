@@ -1,0 +1,78 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 3c69a03..123de78 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -3,8 +3,8 @@
+ pkgbase="foomatic-db"
+ pkgname=('foomatic-db' 'foomatic-db-ppds' 'foomatic-db-nonfree' 'foomatic-db-nonfree-ppds')
+ arch=('any')
+-pkgver=20240209
+-pkgrel=1
++pkgver=20230910
++pkgrel=
+ epoch=3
+ 
+ makedepends=('cups' 'perl' 'libxml2' 'enscript' 'perl' 'net-snmp' 'bash' 'git')
+@@ -14,16 +14,14 @@ options=('!emptydirs')
+ # check https://github.com/OpenPrinting/foomatic-db
+ # for latest commits and development, currently identical to foomatic-4.0 branch
+ 
+-source=(foomatic-db::git+https://github.com/OpenPrinting/foomatic-db#commit=f8b43644771612f854fecda969440511de784bf0			#2024-02-09
++source=(foomatic-db::git+https://github.com/OpenPrinting/foomatic-db#commit=4e6ab90da63afddee33d80115acb44149d2d292b			#2023-09-02
+         foomatic-db-nonfree::git+https://github.com/OpenPrinting/foomatic-db-nonfree#commit=6ddae02ac89240c019f8b5026cfe70e30fd2b3db	#2015-06-05
+ )
+ sha256sums=('SKIP'
+             'SKIP')
+ 
+ pkgver() {
+-  # use latest automated tag date = latest commit
+-  cd "$pkgname"
+-  git log --tags --simplify-by-decoration --pretty="format:%ci %d" | head -n 1 | cut -c 1-10 | sed 's/-//g'
++  date +%Y%m%d
+ }
+ 
+ prepare(){
+@@ -66,7 +64,7 @@ build() {
+ package_foomatic-db() {
+ 
+  pkgdesc="Foomatic - The collected knowledge about printers, drivers, and driver options in XML files, used by foomatic-db-engine to generate PPD files."
+- license=('GPL-2.0-or-later' 'MIT')
++ license=('GPL' 'custom')
+  optdepends=('foomatic-db-ppds: PostScript PPD files')
+  replaces=('foomatic-db-foo2zjs') # AUR pkg no more conflicting and dropped, formerly required by foo2zjs-utils
+  conflicts=('foomatic-db-foo2zjs')
+@@ -83,15 +81,12 @@ package_foomatic-db() {
+    # remove files from foomatic-db-ppds pkg
+    rm -rf "${pkgdir}"/usr/share/cups/model/foomatic-db-ppds
+    rm -rf "${pkgdir}"/usr/share/foomatic/db/source/PPD
+-
+-   # license
+-   install -v -Dm644 "${srcdir}"/${pkgname}/COPYING "${pkgdir}"/usr/share/licenses/${pkgname}/COPYING
+ }
+ 
+ package_foomatic-db-ppds() {
+ 
+  pkgdesc="Foomatic - PPDs from printer manufacturers"
+- license=('GPL-2.0-or-later' 'MIT')
++ license=('GPL' 'custom')
+ 
+    cd "${srcdir}"/foomatic-db-ppds
+    make DESTDIR="${pkgdir}" install
+@@ -108,7 +103,7 @@ package_foomatic-db-ppds() {
+ package_foomatic-db-nonfree() {
+ 
+  pkgdesc="Foomatic - database extension consisting of manufacturer-supplied PPD files released under non-free licenses"
+- license=('LicenseRef-foomatic-db-nonfree')
++ license=('custom')
+  optdepends=('foomatic-db-nonfree-ppds: nonfree PPD files')
+ 
+    cd ${srcdir}/foomatic-db-nonfree
+@@ -122,7 +117,7 @@ package_foomatic-db-nonfree() {
+ package_foomatic-db-nonfree-ppds() {
+ 
+  pkgdesc="Foomatic - non-free PPDs from printer manufacturers"
+- license=('LicenseRef-foomatic-db-nonfree-ppds')
++ license=('custom')
+ 
+    cd ${srcdir}/foomatic-db-nonfree-ppds
+    make DESTDIR="${pkgdir}" install

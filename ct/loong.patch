@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index e979077..b969d20 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -3,7 +3,7 @@ pkgname=ct
+ pkgver=0.9.4
+ pkgrel=1
+ pkgdesc='config transpiler for Flatcar Container Linux'
+-arch=('x86_64' 'aarch64')
++arch=('loong64' 'x86_64' 'aarch64')
+ url='https://github.com/flatcar/container-linux-config-transpiler'
+ license=('Apache')
+ depends=('kubectl')

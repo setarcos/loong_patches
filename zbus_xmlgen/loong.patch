@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index cd2f106..f91c751 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,7 +28,7 @@ prepare() {
+ 
+   cd $_project_name-$pkgname-$pkgver/$pkgname
+   export RUSTUP_TOOLCHAIN=stable
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build() {

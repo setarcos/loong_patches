@@ -1,0 +1,14 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index b89249c..ae9ba95 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -36,6 +36,9 @@ prepare() {
+ 
+ build() {
+   cd compiler-rt-$pkgver.src/build
++# clang didn't support -mlsx
++  CFLAGS=${CFLAGS/-mlsx /}
++  CXXFLAGS=${CFLAGS/-mlsx /}
+ 
+   local cmake_args=(
+     -G Ninja

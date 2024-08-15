@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index a17df0f..3b92174 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -20,7 +20,7 @@ validpgpkeys=(
+ 
+ prepare() {
+   cd "${pkgname}-${pkgver}"
+-  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
++  cargo fetch --locked --target "`uname -m`-unknown-linux-gnu"
+ }
+ 
+ build() {

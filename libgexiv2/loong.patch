@@ -1,0 +1,12 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 84e3d6f..8b238ea 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,6 +28,5 @@ package() {
+ 
+   meson install -C build --destdir "$pkgdir"
+ 
+-  local python_version=$(python -c 'import sys; print(".".join(map(str, sys.version_info[:2])))')
+-  rm -rv "$pkgdir/usr/lib/python$python_version/site-packages/gi/overrides/__pycache__"
++  rm -rv "$pkgdir/usr/lib/python3.11/site-packages/gi/overrides/__pycache__"
+ }

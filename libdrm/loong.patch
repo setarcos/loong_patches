@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 2e0b461..48e89b3 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -28,7 +28,7 @@ validpgpkeys=('34FF9526CFEF0E97A340E2E40FDE7BE0E88F5E48') # Simon Ser <contact@e
+ build() {
+   arch-meson $pkgname-$pkgver build \
+     -D udev=true \
+-    -D etnaviv=disabled \
++    -D etnaviv=enabled \
+     -D freedreno=disabled \
+     -D vc4=disabled \
+     -D valgrind=disabled \

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 2186435..62613b1 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -8,7 +8,7 @@ pkgname=helm
+ pkgver=3.13.3
+ pkgrel=1
+ pkgdesc="The Kubernetes Package Manager"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/helm/helm"
+ license=("Apache")
+ depends=('glibc')

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index f9cb4a2..2151f00 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -48,7 +48,7 @@ package() {
+ 
+   install -Dm 644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}/"
+   install -Dm 644 README.md CODE_OF_CONDUCT.md NEWS.md -t "${pkgdir}/usr/share/doc/${pkgname}/"
+-  mv doc/yardoc "${pkgdir}/usr/share/doc/${pkgname}/"
++#  mv doc/yardoc "${pkgdir}/usr/share/doc/${pkgname}/"
+   rm -rf "${pkgdir}/${_gemdir}/gems/${_gemname}-${pkgver}/"{README.md,CODE_OF_CONDUCT.md,NEWS.md,.gitignore,.rubocop.yml,.travis.yml,test,LICENSE}
+ 
+   rm -rf "${pkgdir}/${_gemdir}/cache"

@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 78c0e76..1dbd2ee 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,7 @@ pkgname=bmkdep
+ pkgver=20140112
+ pkgrel=4
+ pkgdesc="NetBSD mkdep: construct Makefile dependency list"
+-arch=('i686' 'x86_64')
++arch=('i686' 'loong64' 'x86_64')
+ makedepends=('bmake')
+ url="https://code.google.com/p/bmkdep"
+ license=('BSD')

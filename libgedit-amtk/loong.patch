@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 8cc1882..f3e2be9 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,7 @@ pkgname=libgedit-amtk
+ pkgver=5.8.0
+ pkgrel=2
+ pkgdesc="Actions, Menus and Toolbars Kit for GTK applications'"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://gedit-technology.net/"
+ license=('LGPL-3.0-or-later')
+ groups=()

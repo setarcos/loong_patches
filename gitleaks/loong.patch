@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index c66fec1..0f957be 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -7,7 +7,7 @@ pkgver=8.18.1
+ pkgrel=1
+ pkgdesc='Audit Git repos for secrets and keys'
+ url=https://github.com/gitleaks/gitleaks
+-arch=('x86_64' 'i686')
++arch=('loong64' 'x86_64' 'i686')
+ replaces=('gitleaks-bin')
+ license=('MIT')
+ depends=('glibc')

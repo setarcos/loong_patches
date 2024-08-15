@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index d5404f9..75ab7b1 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -5,7 +5,7 @@ pkgname=wf-recorder
+ pkgver=0.4.1
+ pkgrel=1
+ pkgdesc="Screen recorder for wlroots-based compositors such as sway"
+-arch=("x86_64")
++arch=("loong64" "x86_64")
+ url="https://github.com/ammen99/wf-recorder"
+ license=('MIT')
+ depends=(

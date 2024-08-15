@@ -1,0 +1,13 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 87e128a..79b6c4c 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -53,7 +53,7 @@ build() {
+   cd libxslt
+   ./configure "${configure_options[@]}"
+   sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0/g' libtool
+-  make
++  make V=1
+ }
+ 
+ check() {
