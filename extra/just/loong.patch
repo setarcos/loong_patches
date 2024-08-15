@@ -1,0 +1,19 @@
+diff --git a/PKGBUILD b/PKGBUILD
+index 840faa5..4b44350 100644
+--- a/PKGBUILD
++++ b/PKGBUILD
+@@ -21,7 +21,13 @@ prepare() {
+ 
+ build() {
+   cd "${pkgname}-${pkgver}"
+-  cargo build --frozen --release
++  find -name Cargo.lock -exec rm -f {} \;
++  mkdir -p .cargo
++  cat > .cargo/config.toml <<EOF
++[source.crates-io]
++registry = "https://gitee.com/yetist/crates.io-index"
++EOF
++  cargo build --release
+ }
+ 
+ check() {
